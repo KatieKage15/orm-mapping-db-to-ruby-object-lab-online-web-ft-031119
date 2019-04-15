@@ -84,11 +84,12 @@ class Student
     end.first
   end
 
-  def all_students_in_grade_X
+  def all_students_in_grade_X(grade)
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE grade = ?
+      ORDER BY students.id 
     SQL
 
     DB[:conn].execute(sql).map do |row|
