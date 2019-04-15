@@ -74,7 +74,19 @@ class Student
       ORDER BY students.id
       LIMIT 1
     SQL
+  end
 
+  def all_students_in_grade_X
+    sql = <<-SQL
+      SELECT *
+      FROM students 
+      WHERE grade = ?
+    SQL
+
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+  end
+  
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
