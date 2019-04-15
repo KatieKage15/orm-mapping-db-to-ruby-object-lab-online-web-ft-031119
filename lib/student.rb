@@ -79,14 +79,14 @@ class Student
   def all_students_in_grade_X
     sql = <<-SQL
       SELECT *
-      FROM students 
+      FROM students
       WHERE grade = ?
     SQL
 
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
   end
-  
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
