@@ -59,11 +59,11 @@ class Student
   def first_X_students_in_grade_10
     sql = <<-SQL
       SELECT COUNT(*)
-      FROM students 
+      FROM students
       WHERE grade = 10
-      ORDER BY students.id 
+      ORDER BY students.id
       LIMIT ?
-    SQL 
+    SQL
 
   def save
     sql = <<-SQL
