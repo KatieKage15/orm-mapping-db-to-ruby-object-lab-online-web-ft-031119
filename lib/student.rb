@@ -58,7 +58,7 @@ class Student
 
   def first_X_students_in_grade_10
     sql = <<-SQL
-      SELECT 
+      SELECT
 
   def save
     sql = <<-SQL
