@@ -66,7 +66,14 @@ class Student
     SQL
   end
 
-  def
+  def first_student_in_grade_10
+    sql = <<-SQL 
+      SELECT *
+      FROM students 
+      WHERE grade = 10
+      ORDER BY students.id
+      LIMIT 1 
+    SQL 
 
   def save
     sql = <<-SQL
